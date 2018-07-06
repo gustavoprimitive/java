@@ -1,0 +1,6 @@
+<oracle>
+	<user>system</user>
+	<pass>manager</pass>
+	<instance>xe</instance>
+	<port>1521</port>
+</oracle>
