@@ -28,9 +28,9 @@ public class ValidaDigitoControl {
 	public String validar() {
 		
 		//Mensajes a devolver
-		final String MSG[] = {"La numeración " + strIccid + " de la tarjeta SIM es correcta", 
-				      "La numeración " + strIccid + " de la tarjeta SIM es incorrecta", 
-				      "La numeración " + strIccid + " de la tarjeta SIM es incorrecta", 
+		final String MSG[] = {"La numeración " + strIccid + " de la tarjeta SIM es correcta",
+				      "La numeración " + strIccid + " de la tarjeta SIM es incorrecta",
+				      "La numeración " + strIccid + " de la tarjeta SIM es incorrecta",
 				      "La longitud de la tarjeta SIM debe ser de 13 dígitos"}; 
 		int intSuma = 0;
 		
