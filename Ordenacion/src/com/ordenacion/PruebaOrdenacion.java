@@ -5,18 +5,17 @@ public class PruebaOrdenacion {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] numerosDesordenados = new int[10];
-		String outputDesordenados = "";
+		final int numEnterosArray = 10;
+		final int valorMinimoRango = 1;
+		final int valorMaximoRango = 20;		
 		
-		//Generación de array de enteros aleatorios
-		for (int i = 0 ; i < numerosDesordenados.length ; i++) {
-			numerosDesordenados[i] = GeneracionNumerosAleatorios.numeroAleatorio(1, 10);
-			outputDesordenados = outputDesordenados + " " + numerosDesordenados[i];	
-		}
-		System.out.println("Datos de entrada: " + outputDesordenados);
+		//Construcción array a ordenar
+		GeneracionNumerosAleatorios enterosDesordenados = new GeneracionNumerosAleatorios();		
+		System.out.println("Datos de entrada:\t" + enterosDesordenados.generaArrayEnterosAleatorios(numEnterosArray, valorMinimoRango, valorMaximoRango));
 		
-		//Ordenación
-		OrdenacionBurbuja numerosOrdenados = new OrdenacionBurbuja();		
-		System.out.println("Datos de entrada: " + numerosOrdenados.ordenar(numerosDesordenados));
+		//Construcción de array ordenado
+		OrdenacionBurbuja enterosOrdenados = new OrdenacionBurbuja();		
+		System.out.println("Datos de salida:\t" +  enterosOrdenados.ordenar(enterosDesordenados.arrayEnterosAleatorios));
+		
 	}
 }
