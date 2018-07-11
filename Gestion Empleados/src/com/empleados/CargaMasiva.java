@@ -40,7 +40,7 @@ public class CargaMasiva {
 	 * @return
 	 * @throws Exception
 	 */
-	public RegistroEmpleado extraerDatosEmpl(String line) throws Exception {		
+	private RegistroEmpleado extraerDatosEmpl(String line) throws Exception {		
 		
 		String[] camposEmpl;
 		camposEmpl = line.split(";");
@@ -62,7 +62,7 @@ public class CargaMasiva {
 	 * @param con
 	 * @throws Exception
 	 */
-	public void insertaRegistro(RegistroEmpleado emplFile, Connection con) throws Exception {
+	private void insertaRegistro(RegistroEmpleado emplFile, Connection con) throws Exception {
 
 			String oraNull = "NULL";
 			

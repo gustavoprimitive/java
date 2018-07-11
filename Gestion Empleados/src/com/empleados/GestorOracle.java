@@ -11,7 +11,7 @@ public class GestorOracle {
 
 	// Datos de conexión con Oracle
 	//final String orafile = "C:/Users/gustavo.tejerina/eclipse-workspace/empl/oracle.xml";
-	final String orafile = "/home/gustavo/workspace/empl/oracle.xml";
+	final String orafile = "/home/gustavo/workspace/Gestion Empleados/oracle.xml";
 	public String datosConex[] = new String[4];
 	public Connection con;
 
@@ -87,7 +87,7 @@ public class GestorOracle {
 	 * 
 	 * @throws Exception
 	 */
-	public void dataOracle() throws Exception {
+	private void dataOracle() throws Exception {
 
 		final Statement instOra = con.createStatement();
 		final ResultSet rs = instOra.executeQuery(OraQueries.getInstanceData);
