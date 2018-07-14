@@ -6,7 +6,6 @@ public class pruebaSudoku {
 		// TODO Auto-generated method stub
 		GeneraCuadricula sudoku = new GeneraCuadricula();
 		sudoku.recorridoCuadricula();
-		//sudoku.pintadoCuadricula(sudoku.llenarCuadricula());		
 	}
 
 }
