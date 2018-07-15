@@ -5,9 +5,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GeneraCuadricula {
 
 	//Valores posibles en cada fila o columna
-	public int[] enterosPosibles = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int[] enterosPosibles = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 	//Array resultado
-	public int[][] cuadricula = new int[enterosPosibles.length][enterosPosibles.length];
+	int[][] cuadricula = new int[enterosPosibles.length][enterosPosibles.length];
 	//Variables para el control de fin de posibilidades en la combinación
 	boolean intentosValor1 = false;
 	boolean intentosValor2 = false;
@@ -47,7 +47,8 @@ public class GeneraCuadricula {
 					valor = obtenerEnteroPosicion(x, y);
 					//Si se han agotado las posibilidades de combinación se interrumpe el intento
 					if (valor == 666) {
-						System.out.println("Agotadas posibilidades. Nuevo intento");
+						System.out.println("\nAgotadas posibilidades al combinar enteros. Se lanza un nuevo intento.");
+						pintadoCuadricula();
 						limpiarCuadricula();
 						x = 0;
 						y = 0;
@@ -77,6 +78,7 @@ public class GeneraCuadricula {
 			}
 		}
 		//Output de cuadricula
+		System.out.println("\nResultado: ");
 		pintadoCuadricula();
 	}
 	
@@ -143,6 +145,7 @@ public class GeneraCuadricula {
 	 */
 	private boolean registroIntentos(int entero) {		
 		
+		//Se marca a true el entero recibido
 		switch (entero) {
 			case 1: intentosValor1 = true ; break;
 			case 2: intentosValor2 = true ; break;
@@ -155,6 +158,7 @@ public class GeneraCuadricula {
 			case 9: intentosValor9 = true ; break;			
 		}
 	
+		//Devuelve true si se han empleado todos los enteros sin que haya combinación posible en la cuadrícula
 		return intentosValor1 && intentosValor2 && intentosValor3 && intentosValor4 && intentosValor5 && intentosValor6 && intentosValor7
 			&& intentosValor8 && intentosValor9;
 	}
