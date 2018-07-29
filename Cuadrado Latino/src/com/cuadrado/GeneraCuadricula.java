@@ -147,15 +147,15 @@ public class GeneraCuadricula {
 		
 		//Se marca a true el entero recibido
 		switch (entero) {
-			case 1: intentosValor1 = true ; break;
-			case 2: intentosValor2 = true ; break;
-			case 3: intentosValor3 = true ; break;
-			case 4: intentosValor4 = true ; break;
-			case 5: intentosValor5 = true ; break;
-			case 6: intentosValor6 = true ; break;
-			case 7: intentosValor7 = true ; break;
-			case 8: intentosValor8 = true ; break;
-			case 9: intentosValor9 = true ; break;			
+			case 1: intentosValor1 = true; break;
+			case 2: intentosValor2 = true; break;
+			case 3: intentosValor3 = true; break;
+			case 4: intentosValor4 = true; break;
+			case 5: intentosValor5 = true; break;
+			case 6: intentosValor6 = true; break;
+			case 7: intentosValor7 = true; break;
+			case 8: intentosValor8 = true; break;
+			case 9: intentosValor9 = true; break;			
 		}
 	
 		//Devuelve true si se han empleado todos los enteros sin que haya combinación posible en la cuadrícula
