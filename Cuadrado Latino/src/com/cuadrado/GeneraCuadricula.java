@@ -2,22 +2,36 @@ package com.cuadrado;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * @author gustavo
+ *
+ */
 public class GeneraCuadricula {
 
 	//Valores posibles en cada fila o columna
-	int[] enterosPosibles = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	//Array resultado
+	final int[] enterosPosibles = {1, 2, 3, 4, 5, 6, 7, 8, 9};	
+
+	//Valor de flag de error
+	final int flagError = 666;
+	
+	//Mensajes
+	final String msgPosibilidadesAgotadas = "\nAgotadas posibilidades al combinar enteros. Se lanza un nuevo intento.";
+	final String msgResultado = "\nResultado: ";	
+	
+	//Array para el resultado
 	int[][] cuadricula = new int[enterosPosibles.length][enterosPosibles.length];
+	
 	//Variables para el control de fin de posibilidades en la combinación
-	boolean intentosValor1 = false;
-	boolean intentosValor2 = false;
-	boolean intentosValor3 = false;
-	boolean intentosValor4 = false;
-	boolean intentosValor5 = false;
-	boolean intentosValor6 = false;
-	boolean intentosValor7 = false;
-	boolean intentosValor8 = false;
-	boolean intentosValor9 = false;
+	boolean intentosValor1 = false, 
+			intentosValor2 = false, 
+			intentosValor3 = false, 
+			intentosValor4 = false, 
+			intentosValor5 = false, 
+			intentosValor6 = false, 
+			intentosValor7 = false, 
+			intentosValor8 = false, 
+			intentosValor9 = false;		
+	
 	
 	/**
 	 * Genera un entero aleatorio entre los indicados en "enterosPosibles"
@@ -27,16 +41,19 @@ public class GeneraCuadricula {
 		return ThreadLocalRandom.current().nextInt(1, enterosPosibles.length+1);
 	}
 	
+	
 	/**
 	 * Método que ejecuta y controla la asignación de valores a las posiciones de la cuadrícula
 	 */
 	public void recorridoCuadricula() {
 		
+		//Variable con el valor candidato
 		int valor = 0;
-		//Contadores de posición de fila y columna
-		int x = 0;
-		int y = 0;
 		
+		//Contadores de posición de fila y columna
+		int x = 0, y = 0;		
+		
+		//Recorrido de matriz
 		while (x < enterosPosibles.length) {
 			while (y < enterosPosibles.length) { 
 				//Reset de registro de posibilidades
@@ -46,25 +63,23 @@ public class GeneraCuadricula {
 				while (valor == 0) {				
 					valor = obtenerEnteroPosicion(x, y);
 					//Si se han agotado las posibilidades de combinación se interrumpe el intento
-					if (valor == 666) {
-						System.out.println("\nAgotadas posibilidades al combinar enteros. Se lanza un nuevo intento.");
+					if (valor == flagError) {
+						System.out.println(msgPosibilidadesAgotadas);
 						pintadoCuadricula();
 						limpiarCuadricula();
-						x = 0;
-						y = 0;
+						x = y = 0;
 						break;
 					}
 				}				
 				//Asignación a cuadrícula
-				if (valor != 0 && valor != 666) { 
+				if (valor != 0 && valor != flagError) { 
 					cuadricula[x][y] = valor;
 					//Incremento de contador de columna
 					y++;
 				}
 				//Si se han agotado las posibilidades de combinación se interrumpe el intento
-				if (valor == 666) {
-					x = 0;
-					y = 0;
+				if (valor == flagError) {
+					x = y = 0;
 					break;
 				}
 				//Incremento de contador de fila y reset del de columna 
@@ -77,13 +92,21 @@ public class GeneraCuadricula {
 				}
 			}
 		}
-		//Output de cuadricula
-		System.out.println("\nResultado: ");
+		outputCuadricula();
+	}
+
+	
+	/**
+	 * Output de resultado
+	 */
+	private void outputCuadricula() {
+		System.out.println(msgResultado);
 		pintadoCuadricula();
 	}
 	
+	
 	/**
-	 * Output de cuadricula
+	 * Pintado de la cuadricula
 	 */
 	private void pintadoCuadricula() {
 		
@@ -98,6 +121,7 @@ public class GeneraCuadricula {
 		}
 	}
 	
+	
 	/**
 	 * Borrado de valores de cuadricula: se sustituyen por ceros
 	 */
@@ -109,6 +133,7 @@ public class GeneraCuadricula {
 		}
 	}
 	
+	
 	/**
 	 * Verificación de que, en la posición recibida de la cuadrícula, el valor obtenido no se repite con los que comparten su fila o columna
 	 * @param x
@@ -118,7 +143,7 @@ public class GeneraCuadricula {
 	private int obtenerEnteroPosicion(int x, int y) {
 		
 		int enteroCandidato = generaEnteroAleatorio();
-		int contadorOk = 0;
+		int contadorOk = 0;				
 
 		for (int aux = 0 ; aux < enterosPosibles.length ; aux++) {
 			if (cuadricula[x][aux] != enteroCandidato && cuadricula[aux][y] != enteroCandidato) {
@@ -130,13 +155,14 @@ public class GeneraCuadricula {
 			return enteroCandidato;
 		}else {
 			if (registroIntentos(enteroCandidato)) {					
-				return 666;
+				return flagError;
 			}else {
 				return 0;
 			}
 			
 		}
 	}
+	
 	
 	/**
 	 * Control de fin de posibilidades en la combinación
@@ -147,35 +173,27 @@ public class GeneraCuadricula {
 		
 		//Se marca a true el entero recibido
 		switch (entero) {
-			case 1: intentosValor1 = true; break;
-			case 2: intentosValor2 = true; break;
-			case 3: intentosValor3 = true; break;
-			case 4: intentosValor4 = true; break;
-			case 5: intentosValor5 = true; break;
-			case 6: intentosValor6 = true; break;
-			case 7: intentosValor7 = true; break;
-			case 8: intentosValor8 = true; break;
-			case 9: intentosValor9 = true; break;			
+			case 1: intentosValor1 = true ; break;
+			case 2: intentosValor2 = true ; break;
+			case 3: intentosValor3 = true ; break;
+			case 4: intentosValor4 = true ; break;
+			case 5: intentosValor5 = true ; break;
+			case 6: intentosValor6 = true ; break;
+			case 7: intentosValor7 = true ; break;
+			case 8: intentosValor8 = true ; break;
+			case 9: intentosValor9 = true ; break;			
 		}
 	
 		//Devuelve true si se han empleado todos los enteros sin que haya combinación posible en la cuadrícula
-		return intentosValor1 && intentosValor2 && intentosValor3 && intentosValor4 && intentosValor5 && intentosValor6 && intentosValor7
-			&& intentosValor8 && intentosValor9;
+		return intentosValor1 && intentosValor2 && intentosValor3 && intentosValor4 && intentosValor5 && intentosValor6 && intentosValor7 && intentosValor8 && intentosValor9;
 	}
+	
 	
 	/**
 	 * Reset del control de fin de posibilidades en la combinación
 	 */
 	private void resetRegistroIntentos() {
-		intentosValor1 = false;
-		intentosValor2 = false;
-		intentosValor3 = false;
-		intentosValor4 = false;
-		intentosValor5 = false;
-		intentosValor6 = false;
-		intentosValor7 = false;
-		intentosValor8 = false;
-		intentosValor9 = false;
+		intentosValor1 = intentosValor2 = intentosValor3 = intentosValor4 = intentosValor5 = intentosValor6 = intentosValor7 = intentosValor8 = intentosValor9 = false;
 	}
 		
 }
