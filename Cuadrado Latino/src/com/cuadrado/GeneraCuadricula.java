@@ -23,14 +23,14 @@ public class GeneraCuadricula {
 	
 	//Variables para el control de fin de posibilidades en la combinación
 	boolean intentosValor1 = false, 
-			intentosValor2 = false, 
-			intentosValor3 = false, 
-			intentosValor4 = false, 
-			intentosValor5 = false, 
-			intentosValor6 = false, 
-			intentosValor7 = false, 
-			intentosValor8 = false, 
-			intentosValor9 = false;		
+		intentosValor2 = false, 
+		intentosValor3 = false, 
+		intentosValor4 = false, 
+		intentosValor5 = false, 
+		intentosValor6 = false, 
+		intentosValor7 = false, 
+		intentosValor8 = false, 
+		intentosValor9 = false;		
 	
 	
 	/**
