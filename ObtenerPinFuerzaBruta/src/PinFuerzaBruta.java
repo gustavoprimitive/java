@@ -5,7 +5,6 @@ public class PinFuerzaBruta {
 	public final int[] enterosPosibles = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	public String pin;
 	
-	
 	/**
 	 * @param pin
 	 */
@@ -36,7 +35,6 @@ public class PinFuerzaBruta {
 		}
 		return auxConcat;
 	}
-	
 	
 	/**
 	 * 
