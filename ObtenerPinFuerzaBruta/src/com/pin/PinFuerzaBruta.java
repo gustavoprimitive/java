@@ -1,4 +1,5 @@
 package com.pin;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class PinFuerzaBruta {
 	ArrayList<Character> auxConcat = new ArrayList<Character>();
 	
 	/**
+	 * Constructor
 	 * @param pin
 	 */
 	public PinFuerzaBruta(String pin) {		
@@ -18,6 +20,7 @@ public class PinFuerzaBruta {
 	}
 	
 	/**
+	 * Comprobación de cadena candidata y PIN
 	 * @param candidato
 	 * @return
 	 */
@@ -30,6 +33,7 @@ public class PinFuerzaBruta {
 	}
 	
 	/**
+	 * Conversión de ArrayList a String
 	 * @param auxConcat2
 	 * @return
 	 */
@@ -44,6 +48,7 @@ public class PinFuerzaBruta {
 	
 	
 	/**
+	 * Permutación de valores
 	 * @throws UnknownHostException 
 	 * 
 	 */
@@ -68,6 +73,7 @@ public class PinFuerzaBruta {
 	}
 	
 	/**
+	 * Nombre de host para traza de output
 	 * @return
 	 * @throws UnknownHostException
 	 */
@@ -77,6 +83,7 @@ public class PinFuerzaBruta {
 
 
 	/**
+	 * Fecha y hora para traza de output
 	 * @return
 	 * @throws UnknownHostException
 	 */
