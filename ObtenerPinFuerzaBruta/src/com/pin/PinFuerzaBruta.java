@@ -6,9 +6,9 @@ import java.util.Date;
 
 public class PinFuerzaBruta {
 
-	final int[] enterosPosibles = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	final char[] valoresPosibles = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	String pin;
-	ArrayList<Integer> auxConcat = new ArrayList<Integer>();
+	ArrayList<Character> auxConcat = new ArrayList<Character>();
 	
 	/**
 	 * @param pin
@@ -30,16 +30,16 @@ public class PinFuerzaBruta {
 	}
 	
 	/**
-	 * @param digitos
+	 * @param auxConcat2
 	 * @return
 	 */
-	private String concatDigitos(ArrayList<Integer> digitos) {
-		String auxConcat = "";
+	private String concatDigitos(ArrayList<Character> auxConcat) {
+		String auxConcatCadena = "";
 		
-		for (int num : digitos) {
-			auxConcat = auxConcat.concat(String.valueOf(num));
+		for (Character val : auxConcat) {
+			auxConcatCadena = auxConcatCadena + val;
 		}
-		return auxConcat;
+		return auxConcatCadena;
 	}
 	
 	
@@ -49,16 +49,16 @@ public class PinFuerzaBruta {
 	 */
 	public void permute() throws UnknownHostException {		
 
-		for (int n1 : enterosPosibles) {
-			for (int n2 : enterosPosibles) {
-				for (int n3 : enterosPosibles) {
-					for (int n4 : enterosPosibles) {
-						auxConcat.add(n1); auxConcat.add(n2); auxConcat.add(n3); auxConcat.add(n4);							
+		for (Character v1 : valoresPosibles) {
+			for (Character v2 : valoresPosibles) {
+				for (Character v3 : valoresPosibles) {
+					for (Character v4 : valoresPosibles) {
+						auxConcat.add(v1); auxConcat.add(v2); auxConcat.add(v3); auxConcat.add(v4);							
 						if (compruebaCoincidencia(concatDigitos(auxConcat))) {
-							System.out.println(loggerLine() + "Resuelto:\t" + n1 + "-" + n2 + "-" + n3 + "-" + n4);
+							System.out.println(loggerLine() + "Resuelto:\t" + v1 + "-" + v2 + "-" + v3 + "-" + v4);
 							return;
 						}else {
-							System.out.println(loggerLine() + "Intento:\t" + n1 + "-" + n2 + "-" + n3 + "-" + n4);
+							System.out.println(loggerLine() + "Intento:\t" + v1 + "-" + v2 + "-" + v3 + "-" + v4);
 							auxConcat.removeAll(auxConcat);
 						}							
 					}					
