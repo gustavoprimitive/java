@@ -142,7 +142,7 @@ public class PinFuerzaBruta {
 	}	
 	
 	/**
-	 * Output de finde ejecución
+	 * Output de fin de ejecución
 	 * @param v1
 	 * @param v2
 	 * @param v3
