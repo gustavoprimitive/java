@@ -65,7 +65,6 @@ public class PinFuerzaBruta {
 			try {
 				permute();
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
@@ -73,7 +72,6 @@ public class PinFuerzaBruta {
 			try {
 				revPermute();
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
